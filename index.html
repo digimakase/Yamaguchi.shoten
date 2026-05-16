@@ -1084,11 +1084,14 @@
         margin-top:22px;
       }
 
-      .hero-lead{
-        font-size:14px;
-        line-height:2;
-        margin-top:22px;
-      }
+     .hero-lead{
+  font-size:13px;
+  line-height:1.9;
+  margin-top:22px;
+  max-width:100%;
+  overflow-wrap:break-word;
+  word-break:normal;
+}
 
       .hero-card{
         margin-top:28px;
@@ -1259,6 +1262,35 @@
         scroll-behavior:auto!important;
       }
     }
+    @media(max-width:900px){
+  .hero{
+    overflow:hidden;
+  }
+
+  .hero-inner{
+    width:100%;
+    max-width:100%;
+    overflow:hidden;
+  }
+
+  .hero-grid,
+  .hero-grid > div{
+    width:100%;
+    max-width:100%;
+    min-width:0;
+  }
+
+  .hero-lead{
+    width:100%;
+    max-width:100%;
+    display:block;
+    overflow:hidden;
+  }
+
+  .fixed-cta{
+    display:none;
+  }
+}
   </style>
 </head>
 
