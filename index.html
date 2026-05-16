@@ -1291,6 +1291,23 @@
     display:none;
   }
 }
+.pc-break{
+  display:block;
+}
+
+.sp-break{
+  display:none;
+}
+
+@media(max-width:900px){
+  .pc-break{
+    display:none;
+  }
+
+  .sp-break{
+    display:block;
+  }
+}
   </style>
 </head>
 
@@ -1459,7 +1476,10 @@
         <div class="head">
           <div class="reveal from-left">
             <p class="eyebrow">MENU</p>
-            <h2 class="title">今日、<br class="md:hidden">食べたいもの。</h2>
+          <h2 class="title">
+  <span class="pc-break">今日、<br>食べたいもの。</span>
+  <span class="sp-break">今日、食べたいもの。</span>
+</h2>
           </div>
 
           <p class="lead max-w-md reveal from-right">
