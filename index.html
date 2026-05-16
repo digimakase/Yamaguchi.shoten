@@ -3,196 +3,255 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>静岡高松ほるもん焼 山口商店｜Sample Website</title>
-  <meta name="description" content="静岡高松ほるもん焼 山口商店のサンプルサイト。デジまかせ制作デモ。" />
+  <title>静岡高松ほるもん焼き 山口商店</title>
+  <meta name="description" content="静岡市駿河区敷地。地酒とほるもん焼きの店、山口商店。" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: '#17120d',
+            paper: '#fffdf8',
+            milk: '#f8f3ea',
+            line: '#e8ded0',
+            gold: '#b7873f',
+            red: '#b01f18',
+            smoke: '#6f655a'
+          },
+          fontFamily: {
+            serif: ['Noto Serif JP','Yu Mincho','serif'],
+            sans: ['Noto Sans JP','system-ui','sans-serif']
+          },
+          boxShadow: {
+            soft: '0 26px 70px rgba(34, 22, 10, .13)',
+            hover: '0 34px 90px rgba(34, 22, 10, .20)'
+          }
+        }
+      }
+    }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Oswald:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@600;700;900&display=swap" rel="stylesheet">
   <style>
-    :root{
-      --white:#fff;
-      --paper:#fbfaf7;
-      --cream:#fff4dc;
-      --ink:#141414;
-      --muted:#6c6c6c;
-      --line:#ebe6de;
-      --red:#e63b22;
-      --yellow:#f6b33b;
-      --brown:#7a3e1b;
-    }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth;background:#fff}
-    body{margin:0;background:#fff;color:var(--ink);font-family:"Zen Kaku Gothic New","Noto Sans JP",system-ui,sans-serif;overflow-x:hidden;letter-spacing:.02em}
-    a{color:inherit;text-decoration:none} img{display:block;max-width:100%}
-    .wrap{width:min(1120px,calc(100% - 40px));margin:auto}.oswald{font-family:"Oswald",sans-serif;letter-spacing:.02em}.mincho{font-family:"Noto Sans JP",sans-serif}
-    .noise:before{content:"";position:fixed;inset:0;z-index:100;pointer-events:none;opacity:.025;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
-    .nav{position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:80;width:min(1040px,calc(100% - 24px));height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 18px;border:1px solid rgba(0,0,0,.08);border-radius:999px;background:rgba(255,255,255,.86);backdrop-filter:blur(18px);box-shadow:0 18px 60px rgba(0,0,0,.08)}
-    .nav small{display:block;font-size:10px;color:#888;font-weight:700;letter-spacing:.15em}.nav b{font-size:18px}.navlinks{display:flex;gap:28px;font-size:12px;font-weight:900;color:#555}.nav-cta{background:#111;color:#fff;border-radius:999px;padding:11px 16px;font-size:12px;font-weight:900}.menu-btn{display:none}
-
-    /* HERO */
-    .hero{min-height:100svh;position:relative;background:#fff;padding:92px 0 0;overflow:hidden}
-    .hero-stage{width:min(1180px,calc(100% - 36px));margin:0 auto;position:relative;display:grid;grid-template-columns:1fr;gap:0;min-height:calc(100svh - 92px)}
-    .hero-visual{position:relative;min-height:64svh;border-radius:34px;overflow:hidden;background:#ddd;box-shadow:0 35px 110px rgba(70,36,18,.16);isolation:isolate}
-    .hero-visual:before{content:"";position:absolute;inset:-12%;background:url('https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&w=1800&q=85') center/cover;animation:kenburns 15s ease-in-out infinite alternate;z-index:-3}
-    .hero-visual:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.44),rgba(0,0,0,.12) 48%,rgba(255,255,255,.08)),linear-gradient(0deg,rgba(0,0,0,.42),transparent 48%);z-index:-2}
-    .fire-glow{position:absolute;inset:auto -12% -18% -12%;height:44%;background:radial-gradient(circle at 28% 58%,rgba(255,132,27,.72),transparent 24%),radial-gradient(circle at 60% 80%,rgba(230,59,34,.62),transparent 28%),linear-gradient(0deg,rgba(255,189,82,.42),transparent);filter:blur(30px);animation:fire 2.8s ease-in-out infinite alternate;mix-blend-mode:screen;opacity:.88}
-    .steam{position:absolute;inset:0;pointer-events:none;overflow:hidden}.steam span{position:absolute;bottom:4%;width:120px;height:190px;border-radius:50%;background:radial-gradient(ellipse,rgba(255,255,255,.62),rgba(255,255,255,0) 68%);filter:blur(16px);opacity:0;animation:steam 6s linear infinite}.steam span:nth-child(1){left:20%;animation-delay:.2s}.steam span:nth-child(2){left:47%;animation-delay:1.4s}.steam span:nth-child(3){left:70%;animation-delay:2.6s}.steam span:nth-child(4){left:34%;animation-delay:3.7s}
-    .hero-copy{position:absolute;left:clamp(22px,5vw,72px);bottom:clamp(28px,6vw,74px);color:#fff;max-width:760px}.hero-kicker{display:flex;align-items:center;gap:10px;font-size:12px;font-weight:900;letter-spacing:.18em;margin-bottom:18px;opacity:0;animation:slideUp .75s .15s forwards}.hero-kicker:before{content:"";width:42px;height:1px;background:#fff}.hero-title{font-weight:900;letter-spacing:-.08em;line-height:.92;font-size:clamp(54px,10vw,124px);margin:0;text-shadow:0 8px 30px rgba(0,0,0,.28)}
-    .hero-title .line{display:block;overflow:hidden}.hero-title .line span{display:block;transform:translateY(110%);animation:titleIn .9s cubic-bezier(.17,.84,.31,1) forwards}.hero-title .line:nth-child(2) span{animation-delay:.13s}.hero-lead{margin:22px 0 0;font-size:clamp(14px,1.8vw,19px);line-height:2;font-weight:700;text-shadow:0 4px 22px rgba(0,0,0,.38);opacity:0;animation:slideUp .85s .65s forwards}.hero-bottom{position:absolute;left:clamp(18px,3vw,34px);right:clamp(18px,3vw,34px);bottom:18px;display:flex;align-items:end;justify-content:space-between;color:#fff;z-index:2}.hero-bottom-card{display:flex;gap:14px;align-items:center;padding:12px 14px;border:1px solid rgba(255,255,255,.28);background:rgba(255,255,255,.12);backdrop-filter:blur(14px);border-radius:18px;opacity:0;animation:slideUp .85s .9s forwards}.hero-bottom-card strong{font-size:13px}.hero-bottom-card small{display:block;font-size:11px;opacity:.78;margin-top:2px}.scroll-sign{font-size:11px;font-weight:900;letter-spacing:.16em;display:flex;gap:10px;align-items:center;opacity:0;animation:slideUp .85s 1s forwards}.scroll-sign:after{content:"";display:block;width:54px;height:1px;background:#fff;animation:lineMove 1.6s infinite}
-    .hero-info{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;padding:34px 0 70px}.hero-info h2{font-size:clamp(30px,6vw,68px);line-height:1.02;letter-spacing:-.07em;margin:0}.hero-info p{line-height:2.1;color:#555;font-weight:700;margin:0}.stamp{position:absolute;right:28px;top:24px;width:112px;height:112px;border-radius:999px;background:#fff;color:#111;display:grid;place-content:center;text-align:center;font-weight:900;box-shadow:0 18px 50px rgba(0,0,0,.18);animation:float 4s ease-in-out infinite}.stamp em{font-style:normal;font-size:11px;color:var(--red);letter-spacing:.16em}.stamp span{font-size:22px;line-height:1.05}
-    @keyframes kenburns{from{transform:scale(1)}to{transform:scale(1.12) translate(-1.5%,1%)}}@keyframes fire{from{transform:translateY(8px) scale(1);opacity:.72}to{transform:translateY(-8px) scale(1.08);opacity:1}}@keyframes steam{0%{transform:translateY(50px) scale(.6);opacity:0}18%{opacity:.55}100%{transform:translateY(-240px) scale(1.35);opacity:0}}@keyframes titleIn{to{transform:translateY(0)}}@keyframes slideUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}@keyframes lineMove{0%,100%{transform:scaleX(.55);transform-origin:left}50%{transform:scaleX(1);transform-origin:left}}@keyframes float{0%,100%{transform:translateY(0) rotate(-5deg)}50%{transform:translateY(-12px) rotate(4deg)}}
-
-    section{position:relative}.section-pad{padding:118px 0}.section-head{display:grid;grid-template-columns:.85fr 1.15fr;gap:40px;align-items:end;margin-bottom:54px}.eyebrow{font-size:12px;letter-spacing:.24em;color:var(--red);font-weight:900}.big{font-size:clamp(46px,8vw,104px);line-height:.92;letter-spacing:-.08em;font-weight:900;margin:10px 0 0}.copy{font-size:clamp(15px,2vw,18px);line-height:2.25;color:#555;font-weight:700}.reveal{opacity:0;transform:translateY(44px);transition:opacity .9s ease,transform .9s cubic-bezier(.17,.84,.31,1)}.reveal.in{opacity:1;transform:none}.reveal-left{opacity:0;transform:translateX(-60px);transition:opacity .9s ease,transform .9s cubic-bezier(.17,.84,.31,1)}.reveal-right{opacity:0;transform:translateX(60px);transition:opacity .9s ease,transform .9s cubic-bezier(.17,.84,.31,1)}.reveal-left.in,.reveal-right.in{opacity:1;transform:none}.mask{clip-path:inset(0 100% 0 0 round 28px);transition:clip-path 1.15s cubic-bezier(.17,.84,.31,1)}.mask.in{clip-path:inset(0 0 0 0 round 28px)}
-    .photo{border-radius:28px;overflow:hidden;background:#eee;border:1px solid var(--line)}.photo img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s ease}.photo:hover img{transform:scale(1.06)}.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}.about-grid .large{height:560px}.about-grid .stack{display:grid;gap:22px}.about-grid .stack .photo{height:269px}.label-card{position:absolute;left:24px;bottom:24px;background:#fff;border-radius:20px;padding:18px 20px;box-shadow:0 14px 42px rgba(0,0,0,.12);font-weight:900}.marquee{border-block:1px solid var(--line);background:#fff;display:flex;overflow:hidden;white-space:nowrap}.marquee span{font-size:clamp(42px,9vw,120px);font-weight:900;letter-spacing:-.08em;padding:26px 18px;animation:marquee 26s linear infinite;color:#111}.marquee b{color:var(--red)}@keyframes marquee{to{transform:translateX(-100%)}}
-    .menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.menu-card{position:relative;background:#fff;border:1px solid var(--line);border-radius:28px;overflow:hidden;box-shadow:0 22px 70px rgba(0,0,0,.05);transition:.35s ease}.menu-card:hover{transform:translateY(-10px);box-shadow:0 28px 90px rgba(0,0,0,.1)}.menu-card .thumb{height:250px;overflow:hidden}.menu-card .body{padding:22px}.menu-card h3{font-size:24px;margin:0 0 8px;letter-spacing:-.04em}.menu-card p{font-weight:700;color:#666;line-height:1.8;margin:0}.price{margin-top:18px;display:flex;justify-content:space-between;align-items:center;font-weight:900}.price small{color:var(--red);font-size:12px;letter-spacing:.16em}.price span{font-size:22px}.rank{position:absolute;top:14px;left:14px;background:#111;color:#fff;border-radius:999px;padding:8px 12px;font-size:11px;font-weight:900}.cream{background:linear-gradient(180deg,#fff,#fff8ea)}.drink{background:#f8f8f6}.drink-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:24px;align-items:center}.drink-panel{background:#fff;border:1px solid var(--line);border-radius:36px;padding:clamp(28px,5vw,58px);box-shadow:0 24px 80px rgba(0,0,0,.05)}.drink-list{display:grid;gap:12px;margin-top:30px}.drink-list div{display:flex;justify-content:space-between;gap:16px;border-bottom:1px solid var(--line);padding-bottom:12px;font-weight:800;color:#333}.drink-list span{color:#888;font-size:13px}.instagram{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.instagram .photo{height:230px;border-radius:22px}.info{background:#111;color:#fff}.info .copy{color:#d6d6d6}.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}.info-card{background:#1b1b1b;border:1px solid rgba(255,255,255,.12);border-radius:28px;padding:28px}.info-row{display:grid;grid-template-columns:110px 1fr;gap:12px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.1);font-weight:700}.info-row dt{color:#aaa}.cta{padding:100px 0;background:#fff}.cta-box{border-radius:40px;background:linear-gradient(135deg,#fff4dc,#fff 48%,#ffe4d6);padding:clamp(34px,7vw,82px);display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center;border:1px solid var(--line);box-shadow:0 28px 90px rgba(132,78,22,.08)}.cta h2{font-size:clamp(34px,6vw,76px);line-height:1;letter-spacing:-.07em;margin:0}.btns{display:flex;gap:12px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:16px 22px;font-weight:900}.btn.black{background:#111;color:#fff}.btn.red{background:var(--red);color:#fff}.footer{padding:36px 0;border-top:1px solid var(--line);color:#777;font-size:12px;font-weight:700}.sp-only{display:none}
-    @media(max-width:780px){
-      .wrap{width:min(100% - 24px,460px)}.nav{height:54px;top:10px;padding:0 12px}.nav small,.navlinks{display:none}.nav b{font-size:15px}.nav-cta{padding:9px 12px;font-size:11px}.hero{padding-top:72px}.hero-stage{width:calc(100% - 20px);min-height:auto}.hero-visual{min-height:calc(100svh - 96px);border-radius:28px}.hero-visual:before{background-image:url('https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?auto=format&fit=crop&w=1000&q=85');background-position:center}.hero-visual:after{background:linear-gradient(180deg,rgba(0,0,0,.1),rgba(0,0,0,.24) 38%,rgba(0,0,0,.58)),linear-gradient(90deg,rgba(0,0,0,.35),transparent 75%)}.hero-copy{left:20px;right:20px;bottom:96px}.hero-title{font-size:18vw;line-height:.92;letter-spacing:-.09em}.hero-lead{font-size:14px;line-height:1.9;margin-top:18px}.hero-bottom{bottom:16px;left:16px;right:16px}.hero-bottom-card{padding:11px 12px;border-radius:16px}.scroll-sign{display:none}.stamp{top:18px;right:16px;width:82px;height:82px}.stamp em{font-size:9px}.stamp span{font-size:16px}.hero-info{grid-template-columns:1fr;gap:18px;padding:28px 0 64px}.hero-info h2{font-size:11.2vw}.hero-info p{font-size:14px;line-height:2}.section-pad{padding:78px 0}.section-head{grid-template-columns:1fr;gap:18px;margin-bottom:34px}.big{font-size:15vw}.about-grid{grid-template-columns:1fr}.about-grid .large{height:420px}.about-grid .stack .photo{height:220px}.menu-grid{grid-template-columns:1fr}.menu-card .thumb{height:260px}.drink-grid{grid-template-columns:1fr}.instagram{grid-template-columns:repeat(2,1fr)}.instagram .photo{height:180px}.info-grid{grid-template-columns:1fr}.info-row{grid-template-columns:86px 1fr}.cta-box{grid-template-columns:1fr;border-radius:30px}.btns{display:grid}.sp-only{display:block}.pc-only{display:none}.marquee span{font-size:18vw;padding:18px 10px}.noise:before{opacity:.018}
-    }
+    :root{--ink:#17120d;--paper:#fffdf8;--milk:#f8f3ea;--line:#e8ded0;--gold:#b7873f;--red:#b01f18;--smoke:#6f655a}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);overflow-x:hidden}.grain{position:fixed;inset:0;z-index:80;pointer-events:none;opacity:.045;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E")}.progress{position:fixed;left:0;top:0;height:3px;background:linear-gradient(90deg,var(--red),#e6a33a,var(--gold));width:0;z-index:999}.nav{position:fixed;left:0;top:0;width:100%;z-index:120;display:flex;align-items:center;justify-content:space-between;padding:18px clamp(18px,5vw,70px);transition:.45s cubic-bezier(.16,1,.3,1);color:#fff}.nav.scrolled{background:rgba(255,253,248,.88);color:var(--ink);border-bottom:1px solid rgba(23,18,13,.08);backdrop-filter:blur(18px);padding-block:12px}.brand{display:flex;align-items:center;gap:12px;text-decoration:none}.mark{width:48px;height:48px;border-radius:999px;display:grid;place-items:center;background:#fff;color:var(--ink);font-family:'Noto Serif JP';font-weight:900;box-shadow:0 10px 35px rgba(0,0,0,.16);transition:.4s}.nav.scrolled .mark{background:var(--ink);color:#fff}.brand b{font-size:15px;letter-spacing:.18em}.brand small{display:block;font-size:9px;letter-spacing:.32em;opacity:.72;margin-top:2px}.navlinks{display:flex;align-items:center;gap:28px}.navlinks a{font-size:12px;letter-spacing:.17em;text-decoration:none;opacity:.82;transition:.25s}.navlinks a:hover{opacity:1;color:var(--gold)}.tel{border:1px solid currentColor;border-radius:999px;padding:11px 18px!important}.menuBtn{display:none;width:48px;height:48px;border:1px solid currentColor;border-radius:999px;place-items:center;background:transparent;color:inherit}.menuBtn span{display:block;width:20px;height:1px;background:currentColor;margin:4px}.drawer{position:fixed;inset:0;z-index:300;background:var(--paper);clip-path:inset(0 0 100% 0);transition:.8s cubic-bezier(.8,0,.16,1);display:grid;place-items:center}.drawer.open{clip-path:inset(0)}.drawer a{display:block;text-align:center;font-family:'Noto Serif JP';font-size:clamp(34px,12vw,72px);font-weight:900;line-height:1.45;text-decoration:none;color:var(--ink);transform:translateY(28px);opacity:0;transition:.7s cubic-bezier(.16,1,.3,1)}.drawer.open a{transform:none;opacity:1}.close{position:absolute;right:22px;top:18px;font-size:44px;background:none;border:0;color:var(--ink)}.hero{position:relative;min-height:100svh;overflow:hidden;background:#111;display:grid;align-items:end}.heroMedia{position:absolute;inset:0}.slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transform:scale(1.08);transition:1.8s cubic-bezier(.16,1,.3,1);filter:saturate(1.08) contrast(1.06)}.slide.active{opacity:1;transform:scale(1)}.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.04) 34%,rgba(0,0,0,.76)),linear-gradient(90deg,rgba(0,0,0,.72),rgba(0,0,0,.08) 52%,rgba(0,0,0,.44));z-index:1}.heroInner{position:relative;z-index:2;color:#fff;width:100%;padding:170px clamp(18px,5vw,76px) 44px}.heroGrid{display:grid;grid-template-columns:minmax(0,1.2fr) 340px;gap:36px;align-items:end}.tag{display:inline-flex;align-items:center;gap:10px;font-size:11px;letter-spacing:.28em;font-weight:900;color:#f5d8a1}.tag:before{content:"";width:34px;height:1px;background:currentColor}.hero h1{font-family:'Noto Serif JP';font-size:clamp(52px,9.2vw,140px);line-height:.98;letter-spacing:.04em;font-weight:900;margin:22px 0 0;text-shadow:0 28px 80px rgba(0,0,0,.45)}.hero h1 .char{display:inline-block;opacity:0;transform:translateY(1.1em) rotate(3deg);animation:char .9s cubic-bezier(.16,1,.3,1) forwards}.hero h1 .char:nth-child(3n){animation-delay:.05s}.hero h1 .char:nth-child(4n){animation-delay:.11s}.hero h1 .char:nth-child(5n){animation-delay:.17s}@keyframes char{to{opacity:1;transform:none}}.heroLead{max-width:690px;margin-top:26px;line-height:2.05;color:rgba(255,255,255,.82);font-weight:500}.heroPanel{background:rgba(255,253,248,.92);color:var(--ink);padding:24px;border-radius:24px;box-shadow:0 28px 90px rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.42);backdrop-filter:blur(18px);transform:translateY(30px);opacity:0;animation:panelIn .9s cubic-bezier(.16,1,.3,1) forwards 1.05s}.heroPanel .label{font-size:10px;letter-spacing:.28em;color:var(--red);font-weight:900}.heroPanel h2{font-family:'Noto Serif JP';font-weight:900;font-size:25px;line-height:1.45;margin:10px 0}.heroPanel p{font-size:13px;line-height:1.9;color:var(--smoke)}.heroActions{display:flex;gap:10px;margin-top:18px}.btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 20px;border-radius:999px;border:1px solid var(--ink);font-size:12px;font-weight:900;letter-spacing:.12em;text-decoration:none;overflow:hidden;transition:.3s}.btn.dark{background:var(--ink);color:#fff}.btn.light{background:#fff;color:var(--ink);border-color:rgba(23,18,13,.16)}.btn:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(23,18,13,.14)}@keyframes panelIn{to{opacity:1;transform:none}}.scroll{position:absolute;z-index:3;right:clamp(18px,5vw,76px);bottom:26px;color:#fff;display:flex;align-items:center;gap:12px;font-size:11px;letter-spacing:.22em}.scroll:before{content:"";width:70px;height:1px;background:linear-gradient(90deg,transparent,#fff);animation:pulse 1.6s infinite}@keyframes pulse{50%{opacity:.35;transform:translateX(-8px)}}.steam{position:absolute;z-index:2;border-radius:999px;background:linear-gradient(180deg,rgba(255,255,255,.38),transparent);filter:blur(14px);animation:steam 8s linear infinite;pointer-events:none}@keyframes steam{0%{opacity:0;transform:translateY(90px) scale(.55)}20%{opacity:.6}100%{opacity:0;transform:translateY(-230px) translateX(34px) scale(1.5)}}.wrap{width:min(1180px,calc(100% - 40px));margin-inline:auto}.section{position:relative;padding:112px 0}.white{background:var(--paper)}.milk{background:var(--milk)}.sectionHead{display:flex;justify-content:space-between;gap:40px;align-items:end;margin-bottom:54px}.eyebrow{font-size:11px;letter-spacing:.36em;color:var(--red);font-weight:900}.title{font-family:'Noto Serif JP';font-size:clamp(36px,6vw,92px);line-height:1.13;font-weight:900;letter-spacing:.04em;margin-top:16px}.lead{font-size:15px;line-height:2.3;color:var(--smoke)}.reveal{opacity:0;filter:blur(10px);transform:translateY(50px);transition:1s cubic-bezier(.16,1,.3,1)}.reveal.show{opacity:1;filter:blur(0);transform:none}.fromL{transform:translateX(-70px)}.fromR{transform:translateX(70px)}.clip{opacity:1;filter:none;transform:none;clip-path:inset(0 100% 0 0);transition:1.1s cubic-bezier(.8,0,.16,1)}.clip.show{clip-path:inset(0)}.photo{position:relative;overflow:hidden;border-radius:28px;box-shadow:var(--soft);background:#ddd}.photo img{width:100%;height:100%;object-fit:cover;display:block;transition:1.3s cubic-bezier(.16,1,.3,1)}.photo:hover img{transform:scale(1.06)}.photo:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(0,0,0,.28));pointer-events:none}.introGrid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}.introPhoto{height:620px}.note{position:absolute;left:28px;bottom:28px;right:28px;color:#fff;z-index:2}.note b{display:block;font-family:'Noto Serif JP';font-size:28px;margin-bottom:8px}.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:52px}.card{background:#fff;border:1px solid var(--line);border-radius:26px;padding:26px;box-shadow:0 16px 50px rgba(23,18,13,.05);transition:.45s cubic-bezier(.16,1,.3,1)}.card:hover{transform:translateY(-8px);box-shadow:var(--hover)}.num{font-family:'Noto Serif JP';font-size:42px;color:rgba(176,31,24,.15);font-weight:900}.card h3{font-family:'Noto Serif JP';font-size:22px;font-weight:900;margin:14px 0 10px}.card p{font-size:13px;line-height:1.9;color:var(--smoke)}.marquee{overflow:hidden;background:var(--ink);color:#fff;padding:26px 0}.track{display:flex;width:max-content;animation:marquee 26s linear infinite}.track span{white-space:nowrap;font-family:'Noto Serif JP';font-size:clamp(36px,8vw,112px);font-weight:900;margin-right:52px;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.32)}@keyframes marquee{to{transform:translateX(-50%)}}.menuGrid{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}.dish{position:relative;border-radius:30px;overflow:hidden;background:#ddd;min-height:520px;box-shadow:var(--soft)}.dish.small{min-height:251px}.dish img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:1s cubic-bezier(.16,1,.3,1)}.dish:hover img{transform:scale(1.07)}.dish:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 32%,rgba(0,0,0,.74))}.dishText{position:absolute;left:28px;right:28px;bottom:26px;color:#fff;z-index:2}.dishText small{color:#ffd99f;letter-spacing:.26em;font-weight:900}.dishText h3{font-family:'Noto Serif JP';font-size:clamp(28px,4vw,54px);font-weight:900;margin:8px 0}.dishText p{font-size:13px;line-height:1.9;color:rgba(255,255,255,.82)}.sideDishes{display:grid;gap:18px}.priceList{margin-top:24px;background:#fff;border:1px solid var(--line);border-radius:30px;padding:28px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.priceItem{padding:20px;border-radius:20px;background:var(--milk)}.priceItem b{display:block;font-family:'Noto Serif JP';font-size:20px;margin-bottom:8px}.priceItem span{font-size:13px;color:var(--smoke);line-height:1.8}.story{display:grid;grid-template-columns:.8fr 1.2fr;gap:60px;align-items:center}.quote{font-family:'Noto Serif JP';font-size:clamp(32px,5vw,72px);line-height:1.25;font-weight:900}.quote em{font-style:normal;color:var(--red)}.gallery{overflow:hidden}.galleryRow{display:flex;gap:18px;width:max-content;animation:gallery 34s linear infinite}.galleryRow:hover{animation-play-state:paused}.g{width:330px;height:430px;border-radius:24px;overflow:hidden;background:#ddd;box-shadow:0 18px 60px rgba(23,18,13,.1)}.g:nth-child(even){height:330px;margin-top:70px}.g img{width:100%;height:100%;object-fit:cover;transition:1s}.g:hover img{transform:scale(1.08)}@keyframes gallery{to{transform:translateX(-50%)}}.cta{position:relative;overflow:hidden;background:url('https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?auto=format&fit=crop&w=1900&q=85') center/cover fixed;min-height:560px;display:grid;place-items:center;text-align:center;color:#fff}.cta:before{content:"";position:absolute;inset:0;background:rgba(0,0,0,.56)}.ctaInner{position:relative;z-index:2;padding:0 20px}.cta .title{text-shadow:0 16px 70px rgba(0,0,0,.42)}.infoGrid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.infoCard{background:#fff;border:1px solid var(--line);border-radius:32px;padding:36px;box-shadow:var(--soft)}.shopTable{display:grid;gap:0;margin-top:30px}.shopTable div{display:grid;grid-template-columns:112px 1fr;gap:20px;padding:18px 0;border-top:1px solid var(--line);font-size:14px}.shopTable dt{color:var(--red);font-weight:900;letter-spacing:.12em}.shopTable dd{margin:0;color:var(--smoke);line-height:1.9}.mapBox{position:relative;min-height:520px;border-radius:32px;overflow:hidden;background:#eee;box-shadow:var(--soft)}.mapBox iframe{width:100%;height:100%;position:absolute;inset:0;border:0;filter:saturate(.95)}.insta{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}.instaBox{border-radius:28px;border:1px solid var(--line);background:#fff;padding:24px;min-height:220px;display:flex;flex-direction:column;justify-content:space-between}.instaBox b{font-family:'Noto Serif JP';font-size:25px}.footer{background:var(--ink);color:#fff;padding:64px 20px;text-align:center}.footer .mark{margin:0 auto 18px}.footer small{letter-spacing:.2em;color:rgba(255,255,255,.46)}.fixedCta{position:fixed;z-index:150;right:18px;bottom:18px;display:flex;gap:8px}.fixedCta a{background:var(--red);color:#fff;border-radius:999px;padding:14px 17px;font-size:12px;font-weight:900;letter-spacing:.12em;text-decoration:none;box-shadow:0 16px 50px rgba(176,31,24,.25)}@media(max-width:900px){.nav{padding:12px 16px}.navlinks{display:none}.menuBtn{display:grid}.brand b{font-size:13px}.mark{width:43px;height:43px}.hero{min-height:100svh;align-items:end}.heroInner{padding:118px 18px 76px}.heroGrid{grid-template-columns:1fr;gap:24px}.hero h1{font-size:clamp(54px,17vw,78px);line-height:1.05}.heroLead{font-size:14px;line-height:2;margin-top:18px}.heroPanel{border-radius:22px;padding:20px}.heroActions{flex-direction:column}.scroll{display:none}.section{padding:82px 0}.wrap{width:calc(100% - 36px)}.sectionHead{display:block;margin-bottom:36px}.sectionHead .lead{margin-top:22px}.introGrid,.story,.infoGrid{grid-template-columns:1fr;gap:38px}.introPhoto{height:430px}.cards{grid-template-columns:1fr 1fr;gap:12px}.card{padding:20px;border-radius:22px}.card h3{font-size:18px}.menuGrid{grid-template-columns:1fr}.dish{min-height:420px;border-radius:24px}.dish.small{min-height:260px}.priceList{grid-template-columns:1fr;padding:18px;border-radius:24px}.g{width:245px;height:330px}.g:nth-child(even){height:260px;margin-top:46px}.cta{min-height:480px;background-attachment:scroll}.infoCard{padding:25px;border-radius:26px}.shopTable div{grid-template-columns:86px 1fr;font-size:13px}.mapBox{min-height:380px}.insta{grid-template-columns:1fr}.fixedCta{left:14px;right:14px}.fixedCta a{flex:1;text-align:center;padding:14px 8px}.hero:after{background:linear-gradient(180deg,rgba(0,0,0,.24),rgba(0,0,0,.08) 34%,rgba(0,0,0,.76)),linear-gradient(90deg,rgba(0,0,0,.5),rgba(0,0,0,.08))}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
   </style>
 </head>
-<body class="noise">
-  <header class="nav">
-    <a href="#top"><small>SHIZUOKA TAKAMATSU</small><b>山口商店</b></a>
-    <nav class="navlinks"><a href="#about">こだわり</a><a href="#menu">名物</a><a href="#drink">地酒</a><a href="#info">店舗情報</a></nav>
-    <a class="nav-cta" href="tel:07046806311">電話する</a>
+<body class="font-sans antialiased">
+  <div class="progress" id="progress"></div>
+  <div class="grain"></div>
+
+  <nav class="nav" id="nav">
+    <a class="brand" href="#top" aria-label="山口商店 トップへ">
+      <span class="mark">山</span>
+      <span><b>山口商店</b><small>HORUMON & LOCAL SAKE</small></span>
+    </a>
+    <div class="navlinks">
+      <a href="#about">山口商店について</a>
+      <a href="#menu">お品書き</a>
+      <a href="#gallery">写真</a>
+      <a href="#access">店舗案内</a>
+      <a class="tel" href="tel:0540000000">電話予約</a>
+    </div>
+    <button class="menuBtn" id="menuBtn" aria-label="メニューを開く"><span></span><span></span></button>
+  </nav>
+
+  <div class="drawer" id="drawer">
+    <button class="close" id="closeDrawer" aria-label="メニューを閉じる">×</button>
+    <div>
+      <a href="#about">山口商店について</a>
+      <a href="#menu">お品書き</a>
+      <a href="#gallery">写真</a>
+      <a href="#access">店舗案内</a>
+    </div>
+  </div>
+
+  <header class="hero" id="top">
+    <div class="heroMedia">
+      <div class="slide active" style="background-image:url('https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&w=2200&q=88')"></div>
+      <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=2200&q=88')"></div>
+      <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1600891964092-4316c288032e?auto=format&fit=crop&w=2200&q=88')"></div>
+    </div>
+    <div class="steam" style="left:12%;bottom:8%;width:75px;height:220px;animation-delay:.2s"></div>
+    <div class="steam" style="left:72%;bottom:10%;width:54px;height:180px;animation-delay:1.6s"></div>
+    <div class="heroInner">
+      <div class="heroGrid">
+        <div>
+          <p class="tag">SHIZUOKA TAKAMATSU</p>
+          <h1 id="heroTitle">地酒と、<br>ほるもん焼き。</h1>
+          <p class="heroLead">静岡市駿河区敷地。仕事終わりにふらっと寄れる、地酒とホルモン焼きの店。焼ける音、立ちのぼる香り、気取らない一杯を。</p>
+        </div>
+        <aside class="heroPanel">
+          <p class="label">SHOP INFORMATION</p>
+          <h2>静岡高松ほるもん焼き<br>山口商店</h2>
+          <p>営業時間 17:00〜22:00<br>ラストオーダー 21:30<br>静岡県静岡市駿河区敷地 1-28-10</p>
+          <div class="heroActions"><a href="tel:0540000000" class="btn dark">電話予約</a><a href="#access" class="btn light">店舗案内</a></div>
+        </aside>
+      </div>
+    </div>
+    <div class="scroll">SCROLL</div>
   </header>
 
-  <main id="top">
-    <section class="hero">
-      <div class="hero-stage">
-        <div class="hero-visual">
-          <div class="fire-glow"></div>
-          <div class="steam"><span></span><span></span><span></span><span></span></div>
-          <div class="stamp"><em>OPEN</em><span>高松<br>ほるもん</span></div>
-          <div class="hero-copy">
-            <div class="hero-kicker">静岡市駿河区高松 / ほるもん焼き</div>
-            <h1 class="hero-title">
-              <span class="line"><span>地酒と、</span></span>
-              <span class="line"><span>ほるもん。</span></span>
-            </h1>
-            <p class="hero-lead">七輪を囲んで、気取らずうまい夜を。<br class="sp-only">仕事帰りにふらっと寄れる、<br class="sp-only">静岡高松の小さな焼肉酒場。</p>
-          </div>
-          <div class="hero-bottom">
-            <div class="hero-bottom-card">
-              <div><strong>本日のおすすめ</strong><small>新鮮ほるもん・静岡地酒</small></div>
-            </div>
-            <div class="scroll-sign">SCROLL</div>
+  <main>
+    <section class="section white" id="about">
+      <div class="wrap introGrid">
+        <div>
+          <p class="eyebrow reveal fromL">ABOUT</p>
+          <h2 class="title reveal fromL">焼く時間まで、<br>うまい夜。</h2>
+          <p class="lead reveal fromL">2026年2月、静岡市駿河区敷地にオープン。気軽に入れる大衆感はそのままに、写真・余白・動きで「ちゃんとして見える」飲食店サイトへ。山口商店さんらしい、地元に愛される空気感を残した構成です。</p>
+          <div class="cards reveal" style="grid-template-columns:1fr 1fr;margin-top:34px">
+            <div class="card"><div class="num">01</div><h3>ほるもん焼き</h3><p>焼きたての香りと食感を、写真中心でしっかり見せる。</p></div>
+            <div class="card"><div class="num">02</div><h3>地酒</h3><p>静岡の夜に合う一杯を、来店理由として訴求。</p></div>
           </div>
         </div>
-        <div class="hero-info wrap">
-          <h2 class="reveal">白く、軽く。<br>でも腹が鳴る。</h2>
-          <p class="reveal">高級すぎず、安っぽくもない。山口商店さんの“入りやすさ”を残しながら、写真・余白・動きで「ちゃんとして見える」営業用サンプルにしています。スマホで見た瞬間に、店の空気が伝わる構成です。</p>
-        </div>
+        <div class="photo introPhoto clip"><img src="https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?auto=format&fit=crop&w=1400&q=88" alt="焼肉のイメージ"><div class="note"><b>今日も、おつかれさまです。</b><span>七輪を囲む、いい夜を。</span></div></div>
+      </div>
+      <div class="wrap cards reveal">
+        <div class="card"><div class="num">一</div><h3>入りやすい</h3><p>高級すぎず、でも安っぽく見せない。白ベースで清潔感を出します。</p></div>
+        <div class="card"><div class="num">二</div><h3>うまそう</h3><p>肉・湯気・炎・酒。飲食店に必要なシズル感を強めます。</p></div>
+        <div class="card"><div class="num">三</div><h3>SNS向き</h3><p>スマホで見た時に、Instagramからそのまま予約しやすい導線。</p></div>
+        <div class="card"><div class="num">四</div><h3>実在感</h3><p>営業時間・住所・予約導線を整理して、安心して来店できる見え方へ。</p></div>
       </div>
     </section>
 
-    <div class="marquee"><span>YAKINIKU <b>HORUMON</b> LOCAL SAKE&nbsp;</span><span>YAKINIKU <b>HORUMON</b> LOCAL SAKE&nbsp;</span></div>
+    <div class="marquee"><div class="track"><span>YAMAGUCHI SHOTEN</span><span>HORUMON</span><span>LOCAL SAKE</span><span>SHIZUOKA</span><span>YAMAGUCHI SHOTEN</span><span>HORUMON</span><span>LOCAL SAKE</span><span>SHIZUOKA</span></div></div>
 
-    <section id="about" class="section-pad">
+    <section class="section milk" id="menu">
       <div class="wrap">
-        <div class="section-head">
-          <div><div class="eyebrow reveal-left">ABOUT</div><h2 class="big reveal-left">うまい夜は、<br>近所にある。</h2></div>
-          <p class="copy reveal-right">山口商店は、肩肘張らずに楽しめるほるもん焼きのお店。香ばしく焼ける肉、冷えた一杯、店内のほどよい賑わい。大衆感はそのままに、Webでは清潔感と信頼感をしっかり出します。</p>
+        <div class="sectionHead">
+          <div><p class="eyebrow reveal fromL">MENU</p><h2 class="title reveal fromL">お品書き</h2></div>
+          <p class="lead reveal fromR" style="max-width:520px">名物のほるもん焼き、焼肉、おつまみ、締めまで。写真は差し替え前提のサンプルですが、見せ方は本番サイトとして使えるレベルに整えています。</p>
         </div>
-        <div class="about-grid">
-          <div class="photo large mask"><img src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?auto=format&fit=crop&w=1100&q=85" alt="焼肉"></div>
-          <div class="stack">
-            <div class="photo mask" style="position:relative"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=900&q=85" alt="ホルモン"><div class="label-card">名物ほるもん</div></div>
-            <div class="photo mask"><img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=900&q=85" alt="料理"></div>
+        <div class="menuGrid reveal">
+          <article class="dish"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1200&q=88" alt="ほるもん焼き"><div class="dishText"><small>SIGNATURE</small><h3>名物ほるもん焼き</h3><p>香ばしく焼き上げる、山口商店の看板メニュー。大きな写真で“食べたい”を作ります。</p></div></article>
+          <div class="sideDishes">
+            <article class="dish small"><img src="https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&w=1100&q=88" alt="焼肉"><div class="dishText"><small>YAKINIKU</small><h3>焼肉盛り</h3></div></article>
+            <article class="dish small"><img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=1100&q=88" alt="一品料理"><div class="dishText"><small>IPPIN</small><h3>本日の一品</h3></div></article>
           </div>
+        </div>
+        <div class="priceList reveal">
+          <div class="priceItem"><b>ほるもん</b><span>まずは頼みたい看板メニュー。実写真に差し替えると一気に本番感が出ます。</span></div>
+          <div class="priceItem"><b>焼肉</b><span>友人・仕事仲間と囲める盛り合わせ系を見せ場に。</span></div>
+          <div class="priceItem"><b>地酒・お酒</b><span>「焼肉×地酒」で、山口商店らしい来店理由を作ります。</span></div>
         </div>
       </div>
     </section>
 
-    <section id="menu" class="section-pad cream">
-      <div class="wrap">
-        <div class="section-head">
-          <div><div class="eyebrow reveal-left">SIGNATURE</div><h2 class="big reveal-left">まずは、<br>これから。</h2></div>
-          <p class="copy reveal-right">メニューは「写真で食べたくなる」見せ方へ。InstagramやGoogleマップから来た人が、そのまま来店・予約まで進みやすいように、名物を先に見せます。</p>
-        </div>
-        <div class="menu-grid">
-          <article class="menu-card reveal"><span class="rank">No.1</span><div class="thumb"><img src="https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&w=900&q=85" alt="ほるもん"></div><div class="body"><h3>山口ほるもん盛り</h3><p>香ばしさと食感を楽しむ、まず頼みたい一皿。</p><div class="price"><small>POPULAR</small><span>¥980〜</span></div></div></article>
-          <article class="menu-card reveal"><span class="rank">定番</span><div class="thumb"><img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?auto=format&fit=crop&w=900&q=85" alt="焼肉"></div><div class="body"><h3>牛焼き盛り</h3><p>お酒にもご飯にも合う、満足感のある盛り合わせ。</p><div class="price"><small>YAKINIKU</small><span>¥1,480〜</span></div></div></article>
-          <article class="menu-card reveal"><span class="rank">酒肴</span><div class="thumb"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=900&q=85" alt="一品"></div><div class="body"><h3>本日の酒肴</h3><p>ちょっとつまんで、もう一杯。地酒と相性抜群。</p><div class="price"><small>SAKE SIDE</small><span>¥480〜</span></div></div></article>
+    <section class="section white">
+      <div class="wrap story">
+        <div class="photo clip" style="height:520px"><img src="https://images.unsplash.com/photo-1574484284002-952d92456975?auto=format&fit=crop&w=1200&q=88" alt="肉料理"><div class="note"><b>焼ける音が、会話になる。</b><span>大衆感のある店ほど、写真と導線が効きます。</span></div></div>
+        <div>
+          <p class="eyebrow reveal fromR">CONCEPT</p>
+          <p class="quote reveal fromR">気取らず入れて、<br><em>ちゃんとうまい。</em></p>
+          <p class="lead reveal fromR" style="margin-top:26px">山口商店さんに必要なのは、過度な高級感ではなく「清潔感」「入りやすさ」「食欲が湧く写真」。白い余白で見やすくしながら、料理写真だけは迫力を出す設計にしています。</p>
         </div>
       </div>
     </section>
 
-    <section id="drink" class="section-pad drink">
-      <div class="wrap drink-grid">
-        <div class="photo mask" style="height:620px"><img src="https://images.unsplash.com/photo-1605270012917-bf157c5a9541?auto=format&fit=crop&w=900&q=85" alt="地酒"></div>
-        <div class="drink-panel reveal-right">
-          <div class="eyebrow">LOCAL SAKE</div>
-          <h2 class="big">地酒で、<br>仕上げる。</h2>
-          <p class="copy">静岡の地酒、焼酎、定番ドリンクまで。焼き台の熱気と一緒に、気軽に楽しめるラインナップ。</p>
-          <div class="drink-list">
-            <div>静岡地酒 <span>seasonal</span></div>
-            <div>生ビール <span>classic</span></div>
-            <div>ハイボール <span>popular</span></div>
-            <div>焼酎各種 <span>with horumon</span></div>
-          </div>
-        </div>
+    <section class="section milk" id="gallery">
+      <div class="wrap sectionHead">
+        <div><p class="eyebrow reveal fromL">GALLERY</p><h2 class="title reveal fromL">店の空気まで、<br>写真で伝える。</h2></div>
+        <p class="lead reveal fromR" style="max-width:520px">Instagramに飛ぶ前から、店内の雰囲気・料理・お酒が伝わるように。スマホで流し見しても印象に残るギャラリー構成です。</p>
       </div>
-    </section>
-
-    <section class="section-pad">
-      <div class="wrap">
-        <div class="section-head">
-          <div><div class="eyebrow reveal-left">SNS STYLE</div><h2 class="big reveal-left">見て、<br>来たくなる。</h2></div>
-          <p class="copy reveal-right">営業サンプルとして重要なのは、Instagramから来た人が違和感なく見られること。写真の見せ方をSNS寄りにして、若い層にも届く印象に。</p>
-        </div>
-        <div class="instagram">
-          <div class="photo reveal"><img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=600&q=85" alt="料理"></div>
-          <div class="photo reveal"><img src="https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?auto=format&fit=crop&w=600&q=85" alt="肉"></div>
-          <div class="photo reveal"><img src="https://images.unsplash.com/photo-1526318896980-cf78c088247c?auto=format&fit=crop&w=600&q=85" alt="酒"></div>
-          <div class="photo reveal"><img src="https://images.unsplash.com/photo-1577106263724-2c8e03bfe9cf?auto=format&fit=crop&w=600&q=85" alt="店内"></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="info" class="section-pad info">
-      <div class="wrap">
-        <div class="section-head">
-          <div><div class="eyebrow reveal-left">INFORMATION</div><h2 class="big reveal-left">店舗情報</h2></div>
-          <p class="copy reveal-right">電話・地図・SNS導線をわかりやすく。サンプル公開時は、実際のGoogleマップやInstagramリンクに差し替え可能です。</p>
-        </div>
-        <div class="info-grid">
-          <div class="info-card reveal">
-            <dl>
-              <div class="info-row"><dt>店名</dt><dd>静岡高松ほるもん焼 山口商店</dd></div>
-              <div class="info-row"><dt>電話</dt><dd>070-4680-6311</dd></div>
-              <div class="info-row"><dt>住所</dt><dd>静岡県静岡市駿河区高松</dd></div>
-              <div class="info-row"><dt>営業</dt><dd>営業時間は公式情報をご確認ください</dd></div>
-            </dl>
-          </div>
-          <div class="info-card reveal" style="min-height:320px;display:grid;place-items:center;background:linear-gradient(135deg,#222,#111)">
-            <div style="text-align:center"><div class="oswald" style="font-size:64px;line-height:1">MAP</div><p style="color:#aaa;font-weight:800;line-height:2">Google Map 埋め込みエリア<br>GitHub公開時に差し替え</p></div>
-          </div>
+      <div class="gallery reveal">
+        <div class="galleryRow">
+          <div class="g"><img src="https://images.unsplash.com/photo-1594041680534-e8c8cdebd659?auto=format&fit=crop&w=900&q=88" alt="店内"></div>
+          <div class="g"><img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=900&q=88" alt="飲食店"></div>
+          <div class="g"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=900&q=88" alt="焼肉"></div>
+          <div class="g"><img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?auto=format&fit=crop&w=900&q=88" alt="料理"></div>
+          <div class="g"><img src="https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?auto=format&fit=crop&w=900&q=88" alt="肉"></div>
+          <div class="g"><img src="https://images.unsplash.com/photo-1594041680534-e8c8cdebd659?auto=format&fit=crop&w=900&q=88" alt="店内"></div>
+          <div class="g"><img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=900&q=88" alt="飲食店"></div>
+          <div class="g"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=900&q=88" alt="焼肉"></div>
         </div>
       </div>
     </section>
 
     <section class="cta">
+      <div class="ctaInner reveal">
+        <p class="eyebrow" style="color:#ffd99f">RESERVATION</p>
+        <h2 class="title">ご予約は店舗に<br class="md:hidden">お電話で。</h2>
+        <p class="lead" style="color:rgba(255,255,255,.84);margin-top:22px">17:00〜22:00 / L.O.21:30<br>混雑する時間帯は、事前のお電話がおすすめです。</p>
+        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:32px"><a href="tel:0540000000" class="btn dark" style="background:#fff;color:var(--ink);border-color:#fff">電話する</a><a href="#access" class="btn light" style="background:transparent;color:#fff;border-color:rgba(255,255,255,.7)">アクセスを見る</a></div>
+      </div>
+    </section>
+
+    <section class="section white" id="access">
       <div class="wrap">
-        <div class="cta-box reveal">
-          <div><div class="eyebrow">RESERVATION</div><h2>今夜、<br>ほるもん焼きで。</h2></div>
-          <div class="btns"><a class="btn black" href="tel:07046806311">電話で問い合わせ</a><a class="btn red" href="#">Instagramを見る</a></div>
+        <div class="sectionHead">
+          <div><p class="eyebrow reveal fromL">ACCESS</p><h2 class="title reveal fromL">店舗案内</h2></div>
+          <p class="lead reveal fromR" style="max-width:520px">Instagramのプロフィールリンクから来た人が、すぐに場所・営業時間・予約方法を確認できるよう整理しています。</p>
+        </div>
+        <div class="infoGrid">
+          <div>
+            <div class="infoCard reveal fromL">
+              <p class="eyebrow">SHOP INFORMATION</p>
+              <h3 style="font-family:'Noto Serif JP';font-size:34px;font-weight:900;margin-top:14px">静岡高松ほるもん焼き<br>山口商店</h3>
+              <dl class="shopTable">
+                <div><dt>住所</dt><dd>静岡県静岡市駿河区敷地 1-28-10</dd></div>
+                <div><dt>営業時間</dt><dd>17:00〜22:00<br>ラストオーダー 21:30</dd></div>
+                <div><dt>予約</dt><dd>店舗にお電話で承ります</dd></div>
+                <div><dt>SNS</dt><dd>Instagramから最新情報を発信</dd></div>
+              </dl>
+              <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:28px"><a class="btn dark" href="tel:0540000000">電話予約</a><a class="btn light" href="https://yamaguchishoten.jimdosite.com/" target="_blank" rel="noopener">公式サイト</a></div>
+            </div>
+            <div class="insta reveal fromL">
+              <div class="instaBox"><small class="eyebrow">INSTAGRAM</small><b>最新情報はSNSで。</b><span class="lead" style="font-size:13px;line-height:1.8">営業日、メニュー、店内の雰囲気を投稿で見せられます。</span></div>
+              <div class="instaBox"><small class="eyebrow">LINE / TEL</small><b>予約導線を簡単に。</b><span class="lead" style="font-size:13px;line-height:1.8">電話・LINE・GoogleMapへ迷わず誘導。</span></div>
+            </div>
+          </div>
+          <div class="mapBox reveal fromR">
+            <iframe src="https://www.google.com/maps?q=%E9%9D%99%E5%B2%A1%E7%9C%8C%E9%9D%99%E5%B2%A1%E5%B8%82%E9%A7%BF%E6%B2%B3%E5%8C%BA%E6%95%B7%E5%9C%B01-28-10&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="山口商店 周辺地図"></iframe>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="footer"><div class="wrap">© 静岡高松ほるもん焼 山口商店 / Sample Website by デジまかせ</div></footer>
+  <footer class="footer">
+    <div class="mark">山</div>
+    <p style="font-family:'Noto Serif JP';font-size:25px;font-weight:900;margin:0 0 10px">静岡高松ほるもん焼き 山口商店</p>
+    <small>HORUMON & LOCAL SAKE / SHIZUOKA TAKAMATSU</small>
+  </footer>
+
+  <div class="fixedCta"><a href="tel:0540000000">電話予約</a><a href="#access">地図を見る</a></div>
 
   <script>
-    const els = document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.mask');
-    const io = new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.16,rootMargin:'0px 0px -6% 0px'});
-    els.forEach(el=>io.observe(el));
-    const hero = document.querySelector('.hero-visual');
+    const $ = (s,p=document)=>p.querySelector(s);
+    const $$ = (s,p=document)=>[...p.querySelectorAll(s)];
+
+    const title = $('#heroTitle');
+    title.innerHTML = title.textContent.split('').map(ch => ch === '\n' ? '<br>' : `<span class="char">${ch}</span>`).join('');
+
+    const slides = $$('.slide'); let current = 0;
+    setInterval(()=>{ slides[current].classList.remove('active'); current = (current + 1) % slides.length; slides[current].classList.add('active'); }, 4300);
+
+    const nav = $('#nav'); const progress = $('#progress');
     window.addEventListener('scroll',()=>{
-      const y = window.scrollY;
-      if(hero){hero.style.transform = `translateY(${Math.min(y*.035,22)}px)`}
+      const y = scrollY; nav.classList.toggle('scrolled', y > 40);
+      const h = document.documentElement.scrollHeight - innerHeight;
+      progress.style.width = `${Math.min(100, Math.max(0, y / h * 100))}%`;
+      $$('.steam').forEach((el,i)=> el.style.transform = `translateY(${-y*(.045+i*.018)}px)`);
     },{passive:true});
+
+    const io = new IntersectionObserver(entries=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target); } });
+    },{threshold:.14, rootMargin:'0px 0px -8% 0px'});
+    $$('.reveal,.clip').forEach(el=>io.observe(el));
+
+    const drawer = $('#drawer');
+    $('#menuBtn').addEventListener('click',()=>drawer.classList.add('open'));
+    $('#closeDrawer').addEventListener('click',()=>drawer.classList.remove('open'));
+    $$('.drawer a').forEach(a=>a.addEventListener('click',()=>drawer.classList.remove('open')));
+
+    if(matchMedia('(pointer:fine)').matches){
+      document.addEventListener('mousemove',e=>{
+        const x = (e.clientX / innerWidth - .5) * 12;
+        const y = (e.clientY / innerHeight - .5) * 12;
+        $('.heroInner').style.transform = `translate(${x*.22}px,${y*.22}px)`;
+      });
+    }
   </script>
 </body>
 </html>
